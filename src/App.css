@@ -1,38 +1,72 @@
-.App {
+.container {
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-gap: 20px;
+  padding: 25px;
+}
+h1{
+  padding-left: 20px;
+}
+.form{
+  display: flex;
+  padding: 50px;
+}
+.cont{
+  width: 30%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+.cont2{
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+select, input{
+  max-width: 200px;
+  height: 50px;
+  border-radius: 0;
+  background: none;
+  outline: none;
+  border: 1px solid #121212;
+  font-size: 16px;
+  font-family: monospace;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input{
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: 25px;
+  background: none;
+  border: 1px solid #121212;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.chart{
+  position: relative;
+}
+.chart > span{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: darkblue;
+  text-shadow: 1px 1px 2px darkblue;
+  min-width: 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 0;
+  height: 18px;
+  font-size: 12px;
+  vertical-align: middle;
 }
