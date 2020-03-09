@@ -24,8 +24,8 @@ const NS = [10, 20, 80, 100, 200, 800, 1000];
 const VARIANTS = [1, 2];
 const LS = [10, 20, 80, 100, 200, 800, 1000];
 
-// const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
-const API_URL = 'http://localhost:3000/charts';
+const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
+// const API_URL = 'http://localhost:3000/charts';
 
 function App() {
   const [data, setData] = useState([]);
