@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/thesis_charts-client/static/css/main.03e904ca.chunk.css",
-    "main.js": "/thesis_charts-client/static/js/main.aea0e15a.chunk.js",
-    "main.js.map": "/thesis_charts-client/static/js/main.aea0e15a.chunk.js.map",
+    "main.css": "/thesis_charts-client/static/css/main.ca12aeef.chunk.css",
+    "main.js": "/thesis_charts-client/static/js/main.03c727a9.chunk.js",
+    "main.js.map": "/thesis_charts-client/static/js/main.03c727a9.chunk.js.map",
     "runtime-main.js": "/thesis_charts-client/static/js/runtime-main.c6ad69b0.js",
     "runtime-main.js.map": "/thesis_charts-client/static/js/runtime-main.c6ad69b0.js.map",
     "static/js/2.94644ae7.chunk.js": "/thesis_charts-client/static/js/2.94644ae7.chunk.js",
     "static/js/2.94644ae7.chunk.js.map": "/thesis_charts-client/static/js/2.94644ae7.chunk.js.map",
     "index.html": "/thesis_charts-client/index.html",
-    "precache-manifest.6f014a4e8c7a1efce533cc124a364484.js": "/thesis_charts-client/precache-manifest.6f014a4e8c7a1efce533cc124a364484.js",
+    "precache-manifest.441f3651e92fa546a4d0c04f4a77c0ac.js": "/thesis_charts-client/precache-manifest.441f3651e92fa546a4d0c04f4a77c0ac.js",
     "service-worker.js": "/thesis_charts-client/service-worker.js",
-    "static/css/main.03e904ca.chunk.css.map": "/thesis_charts-client/static/css/main.03e904ca.chunk.css.map",
+    "static/css/main.ca12aeef.chunk.css.map": "/thesis_charts-client/static/css/main.ca12aeef.chunk.css.map",
     "static/js/2.94644ae7.chunk.js.LICENSE.txt": "/thesis_charts-client/static/js/2.94644ae7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c6ad69b0.js",
     "static/js/2.94644ae7.chunk.js",
-    "static/css/main.03e904ca.chunk.css",
-    "static/js/main.aea0e15a.chunk.js"
+    "static/css/main.ca12aeef.chunk.css",
+    "static/js/main.03c727a9.chunk.js"
   ]
 }

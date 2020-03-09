@@ -54,7 +54,7 @@ button{
 .chart{
   position: relative;
 }
-.chart > span{
+.chart > .iteration{
   position: absolute;
   right: 0;
   top: 0;
@@ -69,4 +69,52 @@ button{
   height: 18px;
   font-size: 12px;
   vertical-align: middle;
+}
+
+.chart > .pop_size{
+  position: absolute;
+  right: 0;
+  top: 30px;
+  color: goldenrod;
+  text-shadow: 1px 1px 2px goldenrod;
+  min-width: 18px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 0;
+  height: 18px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.arrows{
+  display: flex;
+  padding-left: 50px;
+}
+
+.arrows > button{
+  margin-right: 30px;
+}
+
+.datatype{
+  display: flex;
+  align-content: center;
+  padding-left: 50px;
+}
+.datatype > span:first-child{
+  width: 50px;
+  height: 5px;
+  display: block;
+  margin-top: 10px;
+}
+
+.datatype > span.green{
+  background: #0F0;
+}
+.datatype > span.blue{
+  background: #00F;
+}
+
+.datatype > span.red{
+  background: #F00;
 }
