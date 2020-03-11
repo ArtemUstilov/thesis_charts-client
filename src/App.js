@@ -15,7 +15,9 @@ const USERS = [
 
 const DYNAMIC_L_TYPES = [
   {value: 'type_1', label: 'Type 1 (first 10 steps **2)'},
-  {value: 'type_2', label: 'Type 2 (first 80 steps *1.1'},
+  {value: 'type_2', label: 'Type 2 (first 80 steps *1.1)'},
+  {value: 'type_3', label: 'Type 23 (*1.005)'},
+  {value: 'type_4', label: 'Type 4 (+1 by 2000)'},
 ];
 
 const RUN_IDS = [0, 1, 2, 3, 4];

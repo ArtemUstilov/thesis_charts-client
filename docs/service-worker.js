@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/thesis_charts-client/precache-manifest.13b0ec77ba3b8e6a87c9309e5b1e690c.js"
+  "/thesis_charts-client/precache-manifest.6ddb81fe8c27b8fa09301f951e5713dc.js"
 );
 
 self.addEventListener('message', (event) => {
