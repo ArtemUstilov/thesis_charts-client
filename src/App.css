@@ -13,7 +13,7 @@ h1{
   padding: 50px;
 }
 .cont{
-  width: 30%;
+  width: 10%;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
@@ -23,6 +23,10 @@ h1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+.cont2 > div{
+  display: flex;
+  flex-direction: column;
 }
 select, input{
   max-width: 200px;
@@ -42,17 +46,20 @@ input{
 }
 
 button{
-  grid-column-start: 1;
+  grid-column-start: 3;
   grid-column-end: 4;
   height: 25px;
   background: none;
   border: 1px solid #121212;
   outline: none;
+  background: darkgreen;
+  color: white;
   cursor: pointer;
   border-radius: 5px;
 }
 .chart{
   position: relative;
+  margin-bottom: 30px;
 }
 .chart > .iteration{
   position: absolute;
