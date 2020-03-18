@@ -44,6 +44,7 @@ function App() {
   const [selType, setSelType] = useState(SEL_TYPES[0].val);
   const [runId, setRunId] = useState(0);
   const [offset, setOffset] = useState(0);
+  const [init, setInit] = useState("all_0");
   const [size, setSize] = useState(100);
   const [type, setType] = useState(null);
   const [variant, setVariant] = useState(1);
@@ -54,7 +55,7 @@ function App() {
       const { user, password, table } = MAP_VARIANT_USER[variant];
       setLoading(true);
       const response = await fetch(
-        `${API_URL}?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}&offset=${off === undefined ? offset : off}&limit=${size}
+        `${API_URL}?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&init=${init}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}&offset=${off === undefined ? offset : off}&limit=${size}
           `);
       const json = await response.json();
       setData(json);
@@ -155,6 +156,13 @@ function App() {
               {RUN_IDS.map(id => (
                 <option value={id} key={id}>{id}</option>
               ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="init">Init type</label>
+            <select name="init" id="init_select" value={init} defaultValue="all_0" onChange={makeHandler(setInit)}>
+                <option value={'all_0'} >all 0</option>
+                <option value={'normal'}>normal</option>
             </select>
           </div>
           <div>
