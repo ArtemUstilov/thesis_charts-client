@@ -48,7 +48,7 @@ function App() {
   const [init, setInit] = useState("all_0");
   const [size, setSize] = useState(100);
   const [type, setType] = useState(null);
-  const [variant, setVariant] = useState(1);
+  const [variant, setVariant] = useState(2);
   const [variants, setVariants ] = useState([]);
 
   async function fetchData(off) {

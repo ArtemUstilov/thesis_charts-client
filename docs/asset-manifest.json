@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/thesis_charts-client/static/css/main.5d0e57c7.chunk.css",
-    "main.js": "/thesis_charts-client/static/js/main.84156ade.chunk.js",
-    "main.js.map": "/thesis_charts-client/static/js/main.84156ade.chunk.js.map",
+    "main.js": "/thesis_charts-client/static/js/main.a75f38e3.chunk.js",
+    "main.js.map": "/thesis_charts-client/static/js/main.a75f38e3.chunk.js.map",
     "runtime-main.js": "/thesis_charts-client/static/js/runtime-main.c6ad69b0.js",
     "runtime-main.js.map": "/thesis_charts-client/static/js/runtime-main.c6ad69b0.js.map",
     "static/js/2.f98c60e3.chunk.js": "/thesis_charts-client/static/js/2.f98c60e3.chunk.js",
     "static/js/2.f98c60e3.chunk.js.map": "/thesis_charts-client/static/js/2.f98c60e3.chunk.js.map",
     "index.html": "/thesis_charts-client/index.html",
-    "precache-manifest.92e0385e2c82d3107ca23d78f854cabc.js": "/thesis_charts-client/precache-manifest.92e0385e2c82d3107ca23d78f854cabc.js",
+    "precache-manifest.416237d5145f33ec7109117a838ed9d9.js": "/thesis_charts-client/precache-manifest.416237d5145f33ec7109117a838ed9d9.js",
     "service-worker.js": "/thesis_charts-client/service-worker.js",
     "static/css/main.5d0e57c7.chunk.css.map": "/thesis_charts-client/static/css/main.5d0e57c7.chunk.css.map",
     "static/js/2.f98c60e3.chunk.js.LICENSE.txt": "/thesis_charts-client/static/js/2.f98c60e3.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c6ad69b0.js",
     "static/js/2.f98c60e3.chunk.js",
     "static/css/main.5d0e57c7.chunk.css",
-    "static/js/main.84156ade.chunk.js"
+    "static/js/main.a75f38e3.chunk.js"
   ]
 }
