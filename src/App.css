@@ -7,10 +7,12 @@
 }
 h1{
   padding-left: 20px;
+  text-align: center;
 }
 .form{
-  display: flex;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
 }
 .cont{
   width: 10%;
@@ -29,34 +31,42 @@ h1{
   flex-direction: column;
 }
 select, input{
-  max-width: 200px;
+  max-width: 300px;
   height: 50px;
-  border-radius: 0;
-  background: none;
   outline: none;
-  border: 1px solid #121212;
-  font-size: 16px;
-  font-family: monospace;
   padding: 0 10px;
   box-sizing: border-box;
 }
-
+label{
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form  > div{
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
 input{
   border-radius: 5px;
 }
-
-button{
-  grid-column-start: 3;
-  grid-column-end: 4;
-  height: 25px;
-  background: none;
-  border: 1px solid #121212;
-  outline: none;
-  background: darkgreen;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
+.table{
+  max-height: 600px;
+  overflow: auto;
 }
+
+button.process{
+  height: 50px;
+  width: 200px;
+  outline: none;
+  cursor: pointer;
+}
+
+.process{
+  margin-left: auto;
+}
+
 .chart{
   position: relative;
   margin-bottom: 30px;
@@ -96,13 +106,17 @@ button{
 }
 .arrows{
   display: flex;
+  justify-content: space-between;
   padding-left: 50px;
 }
 
 .arrows > button{
   margin-right: 30px;
 }
-
+.datatypes{
+  display: flex;
+  justify-content: center;
+}
 .datatype{
   display: flex;
   align-content: center;
@@ -124,4 +138,28 @@ button{
 
 .datatype > span.red{
   background: #F00;
+}
+
+tr{
+  cursor: pointer;
+}
+
+tr[data-selected=true]{
+  background: darkgray;
+}
+
+
+.container_form{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin-top: 20px;
+}
+
+table{
+  width: 100%;
+}
+
+.header_select{
+  display: flex;
+  justify-content: center;
 }
