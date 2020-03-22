@@ -21,6 +21,8 @@ const DYNAMIC_L_TYPES = [
   {value: 'type_3', label: 'Type 3 (*1.005)'},
   {value: 'type_4', label: 'Type 4 (+1 by 2000)'},
   {value: 'type_3_init_200', label: 'Type 3 (*1.005), init size 200'},
+  {value: 'type_3_i_200_px10', label: 'Type 3 (*1.005), init size 200 px*10'},
+  {value: 'type_3_i_200_px0_1', label: 'Type 3 (*1.005), init size 200 px/10'},
 ];
 
 
