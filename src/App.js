@@ -11,8 +11,8 @@ const SEL_TYPES = [
 ];
 
 const USERS = [
-  {user: 'postgres', password: '123123Aa', table: 'task_2_variant_2'},
-  {user: 'misha', password: 'thesis_misha', table: 'task2_full_gcloud_v1'},
+  {user: 'postgres', password: '123123Aa', table: 'task_2_variant_2', tableInfo: 'task_2_variant_2'},
+  {user: 'misha', password: 'thesis_misha', table: 'task2_full_gcloud_v1', tableInfo: 'task2_v2_tmp'},
 ];
 
 const DYNAMIC_L_TYPES = [
@@ -72,8 +72,8 @@ function App() {
   }
 
   async function info() {
-    const {user, password, table} = MAP_VARIANT_USER[variant];
-    const response = await fetch(`${API_URL}/available?user=${user}&password=${password}&table=${table}&variant=${variant}`);
+    const {user, password, tableInfo} = MAP_VARIANT_USER[variant];
+    const response = await fetch(`${API_URL}/available?user=${user}&password=${password}&table=${tableInfo}&variant=${variant}`);
     const json = await response.json();
 
     setVariants(json);

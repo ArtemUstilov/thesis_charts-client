@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f1695c046d835ad8c71a9d18db6e08c1",
+    "revision": "b31eeb3cd4c86b7a346de1e52508b4c3",
     "url": "/thesis_charts-client/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thesis_charts-client/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "2c4c5cf18e6b496eeb4e",
+    "revision": "b7a76cc310d6a702dcb3",
     "url": "/thesis_charts-client/static/css/main.d6bcfedb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thesis_charts-client/static/js/2.a0cb8a7e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2c4c5cf18e6b496eeb4e",
-    "url": "/thesis_charts-client/static/js/main.21b27ca2.chunk.js"
+    "revision": "b7a76cc310d6a702dcb3",
+    "url": "/thesis_charts-client/static/js/main.488f7ecf.chunk.js"
   },
   {
     "revision": "570661773b3b56c617d8",
