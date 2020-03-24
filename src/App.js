@@ -54,6 +54,7 @@ function App() {
   const [variant, setVariant] = useState(2);
   const [variants, setVariants] = useState([]);
   const [line, setLine] = useState(null);
+  const [chartLen, setChartLen] = useState(10);
 
   async function fetchData(off) {
     try {
@@ -63,6 +64,22 @@ function App() {
         `${API_URL}?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&init=${init}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}&offset=${off === undefined ? offset : off}&limit=${size}
           `);
       const json = await response.json();
+      const max = json.length && json.reduce((ac, el) => {
+        let m;
+        for(let i = el.ideal_hamming_distribution_p.length-1; i>=0; i--){
+          const we = el.ideal_hamming_distribution_p[i];
+          if(we === 0){
+            continue;
+          }
+
+          m = i + 3;
+        }
+
+        return m > ac ? m : ac;
+      }, 0);
+
+      setChartLen(Math.max(max, 10));
+
       setData(json);
       setLoading(false);
     } catch (e) {
@@ -218,7 +235,7 @@ function App() {
         )}
         {!loading && data.map((f) => {
           const data = {
-            labels: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => i),
+            labels: Array(chartLen).fill(1).map((_, i) => i),
             datasets: [
               {
                 label: 'pairwise_hamming_distribution_p',
