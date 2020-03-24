@@ -145,7 +145,7 @@ function App() {
           <table>
             <thead>
             <tr>
-              <th colSpan={5}>
+              <th colSpan={6}>
                 Available data (Click on any row, type offset and size and press Show to see this model)
               </th>
             </tr>
@@ -155,6 +155,7 @@ function App() {
               <th>RUN ID</th>
               <th>SEL TYPE</th>
               <th>INIT</th>
+              <th>HEALTH FUNC</th>
             </tr>
             </thead>
             <tbody>
@@ -175,6 +176,7 @@ function App() {
                 <td>{t.run_id}</td>
                 <td>{t.sel_type}</td>
                 <td>{t.init}</td>
+                <td>{t.estim}</td>
               </tr>
             ))}
             {!variants.length && (
