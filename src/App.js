@@ -28,8 +28,8 @@ const DYNAMIC_L_TYPES = [
 
 const VARIANTS = [{value: 1, label: 'static population size'}, {value: 2, label: 'dynamic population size'}];
 
-// const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
-const API_URL = 'http://localhost:3000/charts';
+const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
+// const API_URL = 'http://localhost:3000/charts';
 
 const MAP_VARIANT_USER = {
   1: USERS[1],
