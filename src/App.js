@@ -28,8 +28,8 @@ const DYNAMIC_L_TYPES = [
 
 const VARIANTS = [{value: 1, label: 'static population size'}, {value: 2, label: 'dynamic population size'}];
 
-const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
-// const API_URL = 'http://localhost:3000/charts';
+// const API_URL = 'https://thesis-charts-server.herokuapp.com/charts';
+const API_URL = 'http://localhost:3000/charts';
 
 const MAP_VARIANT_USER = {
   1: USERS[1],
@@ -56,6 +56,8 @@ function App() {
   const [line, setLine] = useState(null);
   const [chartLen, setChartLen] = useState(10);
 
+  const [details, setDetails] = useState(null);
+
   async function fetchData(off) {
     try {
       const {user, password, table} = MAP_VARIANT_USER[variant];
@@ -66,9 +68,9 @@ function App() {
       const json = await response.json();
       const max = json.length && json.reduce((ac, el) => {
         let m;
-        for(let i = el.ideal_hamming_distribution_p.length-1; i>=0; i--){
+        for (let i = el.ideal_hamming_distribution_p.length - 1; i >= 0; i--) {
           const we = el.ideal_hamming_distribution_p[i];
-          if(we === 0){
+          if (we === 0) {
             continue;
           }
 
@@ -81,6 +83,23 @@ function App() {
       setChartLen(Math.max(max, 10));
 
       setData(json);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+    }
+  }
+
+  async function fetchDetails() {
+    try {
+      const {user, password, table} = MAP_VARIANT_USER[variant];
+      setLoading(true);
+      const response = await fetch(
+        `${API_URL}/details?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&init=${init}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}
+          `);
+      const json = await response.json();
+
+      setDetails(json);
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -186,10 +205,55 @@ function App() {
             Show
           </Button>
         </div>
-
+        <Button
+          type="button"
+          className="process"
+          onClick={() => {
+            if(details){
+              setDetails(null);
+            }else{
+              fetchDetails();
+            }
+          }}
+          disabled={line === null}>
+          Show Details
+        </Button>
       </div>
 
-
+      {details && (
+        <div>
+          <Bar
+            data={{
+              labels: Array(20000).fill(1).map((_, i) => 1),
+              datasets: [
+                {
+                  label: 'mode_ideal',
+                  borderColor: '#00F',
+                  borderWidth: 1,
+                  data: details.map(t => t.mode_ideal[0])
+                },
+                {
+                  label: 'mode_wild',
+                  borderColor: '#F00',
+                  borderWidth: 1,
+                  data: details.map(t => t.mode_wild[0])
+                },
+                {
+                  label: 'mode_pair',
+                  borderColor: '#0F0',
+                  borderWidth: 1,
+                  data: details.map(t => t.mode_pair[0])
+                },
+              ]
+            }}
+            legend={{
+              display: false,
+            }}
+            width={100}
+            height={45}
+          />
+        </div>
+      )}
       {data && data.length ? (
         <>
           <div className="arrows">
@@ -227,7 +291,8 @@ function App() {
             </div>
           </div>
         </>
-      ) : null}
+      ) : null
+      }
 
       <div className="container">
         {loading && (
@@ -304,28 +369,30 @@ function App() {
           )
         })}
       </div>
-      {data && data.length ? (
-        <div className="arrows">
-          <Button
-            onClick={() => {
-              const back = +offset - +size;
-              setOffset(back < 0 ? 0 : back);
-              fetchData(back);
-            }}
-          >
-            {'<<<'}
-          </Button>
-          <Button
-            onClick={() => {
-              const next = +offset + +size
-              setOffset(next);
-              fetchData(next);
-            }}
-          >
-            {'>>> '}
-          </Button>
-        </div>
-      ) : null}
+      {
+        data && data.length ? (
+          <div className="arrows">
+            <Button
+              onClick={() => {
+                const back = +offset - +size;
+                setOffset(back < 0 ? 0 : back);
+                fetchData(back);
+              }}
+            >
+              {'<<<'}
+            </Button>
+            <Button
+              onClick={() => {
+                const next = +offset + +size
+                setOffset(next);
+                fetchData(next);
+              }}
+            >
+              {'>>> '}
+            </Button>
+          </div>
+        ) : null
+      }
     </div>
   );
 }
