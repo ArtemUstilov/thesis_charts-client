@@ -38,7 +38,6 @@ const MAP_VARIANT_USER = {
 
 const format = val => (val || '').toString().replace(/\s/g, '');
 
-
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -51,6 +50,7 @@ function App() {
   const [init, setInit] = useState("all_0");
   const [size, setSize] = useState(100);
   const [type, setType] = useState(null);
+  const [estim, setEstim] = useState(null);
   const [variant, setVariant] = useState(2);
   const [variants, setVariants] = useState([]);
   const [line, setLine] = useState(null);
@@ -95,11 +95,10 @@ function App() {
       const {user, password, table} = MAP_VARIANT_USER[variant];
       setLoading(true);
       const response = await fetch(
-        `${API_URL}/details?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&init=${init}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}
-          `);
+        `${API_URL}/run_details?${variant == 1 ? `n=${n}` : `type=${type}`}&l=${l}&user=${user}&init=${init}&password=${password}&table=${table}&run_id=${runId}&sel_type=${selType}&estim=${estim}`);
       const json = await response.json();
-
-      setDetails(json);
+      console.log(json)
+      setDetails(json[0].data);
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -119,7 +118,7 @@ function App() {
     info()
   }, [variant]);
   const makeHandler = setter => e => e.persist() || setter(e.target.value);
-
+  console.log(details)
   return (
     <div className="App">
       <h1>
@@ -167,6 +166,7 @@ function App() {
                 setSelType(format(t.sel_type));
                 setRunId(t.run_id);
                 setInit(format(t.init));
+                setEstim(format(t.estim));
                 setLine(ind);
               }}
                   data-selected={ind === line}
@@ -210,13 +210,7 @@ function App() {
         <Button
           type="button"
           className="process"
-          onClick={() => {
-            if(details){
-              setDetails(null);
-            }else{
-              fetchDetails();
-            }
-          }}
+          onClick={fetchDetails}
           disabled={line === null}>
           Show Details
         </Button>
@@ -224,36 +218,7 @@ function App() {
 
       {details && (
         <div>
-          <Bar
-            data={{
-              labels: Array(20000).fill(1).map((_, i) => 1),
-              datasets: [
-                {
-                  label: 'mode_ideal',
-                  borderColor: '#00F',
-                  borderWidth: 1,
-                  data: details.map(t => t.mode_ideal[0])
-                },
-                {
-                  label: 'mode_wild',
-                  borderColor: '#F00',
-                  borderWidth: 1,
-                  data: details.map(t => t.mode_wild[0])
-                },
-                {
-                  label: 'mode_pair',
-                  borderColor: '#0F0',
-                  borderWidth: 1,
-                  data: details.map(t => t.mode_pair[0])
-                },
-              ]
-            }}
-            legend={{
-              display: false,
-            }}
-            width={100}
-            height={45}
-          />
+          <img src={'data:image/png;base64,'+details} alt=""/>
         </div>
       )}
       {data && data.length ? (
