@@ -55,6 +55,7 @@ function App() {
   const [variant, setVariant] = useState(2);
   const [variants, setVariants] = useState([]);
   const [line, setLine] = useState(null);
+  const [isNew, setIsNew] = useState(null);
   const [chartLen, setChartLen] = useState(10);
 
   const [details, setDetails] = useState(null);
@@ -145,7 +146,7 @@ function App() {
           <table>
             <thead>
             <tr>
-              <th colSpan={6}>
+              <th colSpan={7}>
                 Available data (Click on any row, type offset and size and press Show to see this model)
               </th>
             </tr>
@@ -156,6 +157,7 @@ function App() {
               <th>SEL TYPE</th>
               <th>INIT</th>
               <th>HEALTH FUNC</th>
+              <th>IS NEW</th>
             </tr>
             </thead>
             <tbody>
@@ -169,6 +171,7 @@ function App() {
                 setInit(format(t.init));
                 setEstim(format(t.estim));
                 setLine(ind);
+                setIsNew(t.is_new);
               }}
                   data-selected={ind === line}
               >
@@ -178,6 +181,7 @@ function App() {
                 <td>{t.sel_type}</td>
                 <td>{t.init}</td>
                 <td>{t.estim}</td>
+                <td>{t.is_new}</td>
               </tr>
             ))}
             {!variants.length && (
