@@ -181,7 +181,7 @@ function App() {
                 <td>{t.sel_type}</td>
                 <td>{t.init}</td>
                 <td>{t.estim}</td>
-                <td>{t.is_new}</td>
+                <td>{t.is_new ? 'NEW': '-'}</td>
               </tr>
             ))}
             {!variants.length && (
