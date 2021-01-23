@@ -14,7 +14,8 @@
     "react-chartjs-2": "^2.9.0",
     "react-csv-reader": "^2.0.2",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "sass": "^1.32.5"
   },
   "homepage": "https://artemustilov.github.io/thesis_charts-client/",
   "scripts": {
