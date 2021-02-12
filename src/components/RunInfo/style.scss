@@ -1,0 +1,43 @@
+.runInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  .chart{
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .chart > .iteration{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: darkblue;
+    text-shadow: 1px 1px 2px darkblue;
+    min-width: 18px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 0;
+    height: 18px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+
+  .chart > .pop_size{
+    position: absolute;
+    right: 0;
+    top: 30px;
+    color: goldenrod;
+    text-shadow: 1px 1px 2px goldenrod;
+    min-width: 18px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 0;
+    height: 18px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+}

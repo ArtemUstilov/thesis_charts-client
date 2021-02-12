@@ -1,42 +1,10 @@
 import React, {useState} from "react";
+import {API_URL, DYNAMIC_L_TYPES, ESTIM_TYPES, SEL_TYPES, INIT_TYPES} from "../../constants";
 import "./style.scss";
-
-const API_URL = 'http://127.0.0.1:8000';
-
-const SEL_TYPES = [
-  {value: 'rws', label: 'Рулетка'},
-  {value: 'tournament_2', label: 'Турнір 2'},
-  {value: 'tournament_4', label: 'Турнір 4'},
-];
-
-const INIT_TYPES = [
-  {value: 'all_0', label: 'Всі нулі'},
-  {value: 'normal', label: 'Нормальний розподіл (Гауса)'},
-];
-
-const ESTIM_TYPES = [
-  {value: 'all_l', label: 'Статична функція здоров\'я'},
-  {value: 'on_split_locuses', label: 'Змінна функція здоров\'я'},
-];
-
-const DYNAMIC_L_TYPES = [
-  {value: 'type_1', label: 'Type 1 (first 10 steps **2)'},
-  {value: 'type_2', label: 'Type 2 (first 80 steps *1.1)'},
-  {value: 'type_3', label: 'Type 3 (*1.005)'},
-  {value: 'type_4', label: 'Type 4 (+1 by 2000)'},
-  {value: 'type_3_init_200', label: 'Type 3 (*1.005), init size 200'},
-  {value: 'type_3_i_200_px10', label: 'Type 3 (*1.005), init size 200 px*10'},
-  {value: 'type_3_i_200_px0_1', label: 'Type 3 (*1.005), init size 200 px/10'},
-  {value: 'type_3_i_200_if_500', label: 'Type 3 (*1.005), init size 200, static size first 500 iter'},
-];
-
-
-// const VARIANTS = [{value: 1, label: 'static population size'}, {value: 2, label: 'dynamic population size'}];
 
 const makeHandler = setter => e => e.persist() || setter(e.target.value);
 
-const RunForm = () => {
-  // const [n, setN] = useState(null);
+const RunForm = ({ onFinish }) => {
   const [l, setL] = useState(10);
   const [selType, setSelType] = useState(SEL_TYPES[0].value);
   const [runs, setRuns] = useState(1);
@@ -46,23 +14,24 @@ const RunForm = () => {
 
   const [progress, setProgress] = useState({});
 
-  const checkRun = async (runIdIndex, prevProgress, runIds) => {
+  const checkRun = async (runIdIndex, runIds) => {
     const url = `${API_URL}/check?run_id=${runIds[runIdIndex]}`;
     const response = await fetch(url);
 
     const json = await response.json();
 
-    if (prevProgress === json) {
+    if (json.finish) {
       if (runIdIndex >= runIds.length - 1) {
+        onFinish(runIds);
         return;
       }
-      setTimeout(() => checkRun(runIdIndex + 1, json, runIds), 1000);
+      setTimeout(() => checkRun(runIdIndex + 1, runIds), 1000);
     } else {
-      setTimeout(() => checkRun(runIdIndex, json, runIds), 1000);
+      setTimeout(() => checkRun(runIdIndex, runIds), 1000);
     }
 
     setProgress({
-      iteration: json,
+      iteration: json.iter,
       run: runIdIndex,
       runs: runIds.length,
     });
@@ -73,7 +42,7 @@ const RunForm = () => {
     const response = await fetch(url);
     const json = await response.json();
     if (!!json.length) {
-      await checkRun(0, null, json);
+      setTimeout(()=>checkRun(0, json), 100);
     }
   };
 
