@@ -1,43 +1,79 @@
+.chartImage{
+  max-width: 100%;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .runInfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 20px;
+  &_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  input, select {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    height: 45px;
+    padding-left: 15px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    height: 45px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
 
   .chart{
     position: relative;
-    margin-bottom: 30px;
     width: 100%;
+    padding: 40px 10px 10px;
+    border: 1px solid white;
   }
   .chart > .iteration{
     position: absolute;
-    right: 0;
-    top: 0;
-    color: darkblue;
-    text-shadow: 1px 1px 2px darkblue;
+    right: 5px;
+    top: 10px;
+    color: green;
+    font-weight: bold;
     min-width: 18px;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    padding: 0;
     height: 18px;
     font-size: 12px;
     vertical-align: middle;
+    padding: 5px;
+    background-color: white;
+    border-radius: 50%;
   }
-
-  .chart > .pop_size{
+  .chart > .label{
     position: absolute;
-    right: 0;
-    top: 30px;
-    color: goldenrod;
-    text-shadow: 1px 1px 2px goldenrod;
+    left: 5px;
+    top: 10px;
+    color: green;
+    font-weight: bold;
     min-width: 18px;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    padding: 0;
     height: 18px;
     font-size: 12px;
     vertical-align: middle;
+    padding: 5px;
+    background-color: white;
   }
 }
