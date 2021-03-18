@@ -12,6 +12,7 @@ const RunForm = ({onFinish, openArchive}) => {
   const [sigma, setSigma] = useState(2);
   const [const_1, setConst1] = useState(1);
   const [const_2, setConst2] = useState(2);
+  const [stopConfluence, setStopConfluence] = useState(true);
   const [px, setPx] = useState(0.00001);
   const [selType, setSelType] = useState(SEL_TYPES[0].value);
   const [runs, setRuns] = useState(1);
@@ -40,9 +41,9 @@ const RunForm = ({onFinish, openArchive}) => {
         onFinish(runIds);
         return;
       }
-      setTimeout(() => checkRun(runIdIndex + 1, runIds), 1000);
+      setTimeout(() => checkRun(runIdIndex + 1, runIds), 200);
     } else {
-      setTimeout(() => checkRun(runIdIndex, runIds), 1000);
+      setTimeout(() => checkRun(runIdIndex, runIds), 200);
     }
 
     setProgress({
@@ -53,7 +54,7 @@ const RunForm = ({onFinish, openArchive}) => {
   };
 
   const startRuns = async () => {
-    const url = `${API_URL}/run?&l=${l}&init=${init}&runs=${runs
+    const url = `${API_URL}/run?&l=${l}&init=${init}&stop_confluence=${stopConfluence}&runs=${runs
     }&sel_type=${selType}&estim=${estim
     }&n=${n}&title=${title}&px=${px}&random_state=${randomState || 0}&use_mutation=${+!!useMutation
     }&save_pair=${+!!params.pair}&sigma=${sigma}&const_1=${const_1}&const_2=${const_2}
@@ -266,9 +267,15 @@ const RunForm = ({onFinish, openArchive}) => {
       )}
       <div>
         <label>
+          Зупинка після збіжності
+        </label>
+        <input type="checkbox" checked={stopConfluence} onChange={() => setStopConfluence(!stopConfluence)}/>
+      </div>
+      <div>
+        <label>
           Застосувати мутацію
         </label>
-        <input type="checkbox" value={useMutation} onChange={() => setUseMutation(!useMutation)}/>
+        <input type="checkbox" checked={useMutation} onChange={() => setUseMutation(!useMutation)}/>
       </div>
       {useMutation && (
         <div>

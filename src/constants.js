@@ -20,6 +20,7 @@ export const SEL_TYPES = [
 export const INIT_TYPES = [
   {value: 'all_0', label: 'Всі нулі'},
   {value: 'all_1', label: 'Всі одиниці'},
+  {value: 'all_1_one_0', label: 'Всі одиниці, один ідеальний (0..0)'},
   {value: 'half_1_half_0', label: 'Половина одиниці, половина нулі'},
   {value: 'normal', label: 'Біноміальний розподіл (р=0,5)'},
   {value: 'normal_with_ideal', label: 'Бін розподіл (р=0,5) та 1 ідеал'},
